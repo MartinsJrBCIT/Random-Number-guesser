@@ -9,8 +9,7 @@ int main()
         srand(time(0));
 
         int randomNum = rand() % 101;
-    //checks if the random number variable works with the code(delete when finished)
-        cout<<randomNum<<endl;
+    
 
     //The user guesses what the random number is. Each time you guess the attempted guesses go up by 1.
         int guess;
