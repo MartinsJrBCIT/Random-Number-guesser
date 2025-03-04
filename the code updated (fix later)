@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    // Generate a random number between 0 and 100 each time the program runs
+        srand(time(0));
+
+        int randomNum = rand() % 101;
+
+
+    //The user guesses what the random number is. Each time you guess the attempted guesses go up by 1.
+        double guess;
+        double guesscounter=0;
+        while(true){
+            cout<<"\nEnter Guess:"<<endl;
+            cin>>guess;
+
+            cout << "your guess is " << round(guess) << endl;
+            if (guess < 0 || guess > 100){
+                cout<<"\nHint: the number is between 1-100."<<endl;
+        }
+            else {
+        guesscounter++;  // Only increment  if the guess is valid
+    }
+
+        //This part checks if the number you guessed is equal to the random number
+             if ( guess == randomNum ){
+                cout<<"Guesses: " << guesscounter<<"\n\nCorrect Guess!"<<endl;
+                break; //This ends the code when you win
+        //This part checks if the number you guess is over the random number
+            }
+            else if ( guess > randomNum && guess < 100 && guess > 0){
+                cout<<"Guesses: " << guesscounter<<"\nTry a lower number."<<endl;
+            }
+
+            //check if the guess is less than the random number
+            else if ( guess < randomNum && guess < 100 && guess > 0){
+                cout<<"Guesses: " << guesscounter<<"\nTry using a higher number."<<endl;
+            }
+
+
+        }
+
+        return 0;
+}
