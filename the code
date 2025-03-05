@@ -19,7 +19,15 @@ int main()
             cout<<"\nEnter Guess:"<<endl;
             cin>>guess;
 
-            cout << "your guess is " << round(guess) << endl;
+            //This determines whether a guess is an allowed integer or not
+            if (cin.fail()){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"\nYour guess must be an actual number!"<<endl;
+            }
+
+
+            cout << "You guessed: " << round(guess) << endl;
             if (guess < 0 || guess > 100){
                 cout<<"\nHint: the number is between 1-100."<<endl;
         }
@@ -33,12 +41,12 @@ int main()
                 break; //This ends the code when you win
         //This part checks if the number you guess is over the random number
             }
-            else if ( guess > randomNum && guess < 100 && guess > 0){
+            else if ( guess > randomNum && guess <= 100 && guess > 0){
                 cout<<"Guesses: " << guesscounter<<"\nTry a lower number."<<endl;
             }
 
             //check if the guess is less than the random number
-            else if ( guess < randomNum && guess < 100 && guess > 0){
+            else if ( guess < randomNum && guess <= 100 && guess > 0){
                 cout<<"Guesses: " << guesscounter<<"\nTry using a higher number."<<endl;
             }
 
